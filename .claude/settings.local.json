@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.sitebuilderreport.com)",
+      "WebFetch(domain:htmlburger.com)",
+      "WebFetch(domain:www.voicebymaria.com)",
+      "WebFetch(domain:www.voiceactorwebsites.com)",
+      "WebFetch(domain:rupertdegas.com)",
+      "WebFetch(domain:neilwilliamsvoiceover.com)",
+      "WebFetch(domain:www.leoniedoesvoices.com)",
+      "WebFetch(domain:alteregovoices.com)",
+      "WebFetch(domain:www.angeliquetalio-voiceover.com)",
+      "WebFetch(domain:www.liliwexuvoiceovers.com)",
+      "WebFetch(domain:voice123.com)",
+      "WebFetch(domain:voiceacting101.com)",
+      "WebFetch(domain:www.wix.com)",
+      "WebFetch(domain:squarestash.com)",
+      "WebFetch(domain:www.jessicalewisvoice.com)",
+      "Bash(python3 -c \":*)"
+    ]
+  }
+}

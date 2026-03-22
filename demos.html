@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos — Maud Fasel, Multilingual Voiceover Artist</title>
+  <meta name="description" content="Audio and video demos from Maud Fasel: radio commercials, TV spots, corporate narration, brand films and more — in English, French, German and Italian.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#FAF8F5', charcoal:'#1C1C1C', gold:'#B8963E', 'gold-dk':'#9A7A2E', warmgrey:'#F0EDE8' },
+          fontFamily: { display:['"Playfair Display"','Georgia','serif'], body:['Inter','system-ui','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js"></script>
+  <script src="js/lang-detect.js"></script>
+</head>
+<body class="bg-ivory font-body text-charcoal antialiased">
+
+  <!-- NAV (same on every page) -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-charcoal/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <a href="index.html" class="font-display text-xl lg:text-2xl text-charcoal tracking-wide">Maud Fasel</a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-sm text-gold font-medium tracking-wide">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-1.5 border-l border-charcoal/15 pl-5">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">FR</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">DE</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">IT</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal" aria-label="Toggle navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-ivory border-t border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-charcoal/65">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-charcoal font-medium">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-charcoal/65">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-charcoal/65">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-charcoal/65">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-charcoal/65">Contact</a>
+        <div class="flex gap-4 pt-4 border-t border-charcoal/10">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 tracking-widest">FR</a>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 tracking-widest">DE</a>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 tracking-widest">IT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="pt-16 lg:pt-20 bg-warmgrey">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <p data-i18n="demos.label" class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4 fade-in">Listen</p>
+      <h1 data-i18n="demos.h1" class="font-display text-5xl lg:text-6xl text-charcoal mb-4 fade-in">Demo Library</h1>
+      <p data-i18n="demos.subtitle" class="font-body text-charcoal/55 text-lg max-w-lg fade-in">
+        Browse by language or category. Each demo is a real project recorded for a Swiss client.
+      </p>
+    </div>
+  </header>
+
+  <!-- LANGUAGE FILTER TABS -->
+  <section class="bg-ivory border-b border-charcoal/10 sticky top-16 lg:top-20 z-40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex gap-1 overflow-x-auto py-4">
+      <!-- =========================================================
+           FILTER TABS: clicking a tab shows only demos in that language.
+           The JS in main.js handles the show/hide logic.
+           ========================================================= -->
+      <button data-lang="all" data-i18n="filter.all" class="lang-tab active font-body text-xs font-semibold tracking-[0.18em] uppercase px-5 py-2 border border-charcoal/20 text-charcoal whitespace-nowrap transition-colors">All</button>
+      <button data-lang="EN"  data-i18n="filter.en"  class="lang-tab font-body text-xs font-semibold tracking-[0.18em] uppercase px-5 py-2 border border-charcoal/20 text-charcoal/55 whitespace-nowrap transition-colors">English</button>
+      <button data-lang="FR"  data-i18n="filter.fr"  class="lang-tab font-body text-xs font-semibold tracking-[0.18em] uppercase px-5 py-2 border border-charcoal/20 text-charcoal/55 whitespace-nowrap transition-colors">Français</button>
+      <button data-lang="DE"  data-i18n="filter.de"  class="lang-tab font-body text-xs font-semibold tracking-[0.18em] uppercase px-5 py-2 border border-charcoal/20 text-charcoal/55 whitespace-nowrap transition-colors">Deutsch</button>
+      <button data-lang="IT"  data-i18n="filter.it"  class="lang-tab font-body text-xs font-semibold tracking-[0.18em] uppercase px-5 py-2 border border-charcoal/20 text-charcoal/55 whitespace-nowrap transition-colors">Italiano</button>
+    </div>
+  </section>
+
+  <!-- DEMO GRID -->
+  <section class="bg-ivory py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <!-- =========================================================
+             DEMO CARDS
+             Each card has data-lang="XX" for the filter to work.
+             To add a new demo:
+               1. Copy a card block
+               2. Update title, description, language badge, category label
+               3. Change audio src to your .m4a or .mp3 file in /Audios/
+                  OR replace <audio> with a YouTube embed (see card below)
+             ========================================================= -->
+
+        <!-- 1. Migros — local audio -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Migros</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Support my Camp — Summer Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Upbeat summer promotion encouraging Swiss families to sign up for Migros holiday activities.
+          </p>
+          <audio controls preload="none" class="w-full">
+            <source src="Audios/Nouvel enregistrement.m4a" type="audio/mp4">
+          </audio>
+        </div>
+
+        <!-- 2. UBS — local audio -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="EN">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Corporate Narration</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">EN</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">UBS</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Knowledge Network — Wealth Management Series</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Professional narration for a 5-part series on wealth management for international clients.
+          </p>
+          <audio controls preload="none" class="w-full">
+            <source src="Audios/Nouvel enregistrement 2.m4a" type="audio/mp4">
+          </audio>
+        </div>
+
+        <!-- 3. Coop -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Coop</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Prix Garantie — January Promotions</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Warm, reassuring tone highlighting Coop everyday low prices across fresh produce lines.
+          </p>
+          <!-- =====================================================
+               NO AUDIO FILE YET: Replace the paragraph below with an
+               <audio> element once the file is available.
+               Add the file to /Audios/ and update the src.
+               ===================================================== -->
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 4. Swisscom -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="DE">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">TV Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">DE</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Swisscom</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Blue TV — Launch Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Energetic voiceover for the Swisscom Blue TV launch targeting German-speaking Swiss households.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 5. Swiss Airlines — YouTube embed -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="EN">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">IVR / Announcement</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">EN</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Swiss International Air Lines</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">In-flight Safety & Welcome Announcement</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-4">
+            Calm, reassuring bilingual announcement for Swiss long-haul flights (EN & FR versions).
+          </p>
+          <!-- =====================================================
+               YOUTUBE EMBED: Replace VIDEO_ID with the real YouTube
+               video ID (the part after ?v= in the URL).
+               ===================================================== -->
+          <div class="yt-container cursor-pointer group"
+               onclick="loadYouTube(this, 'VIDEO_ID_HERE')"
+               role="button" aria-label="Play demo video">
+            <div class="absolute inset-0 bg-charcoal/80 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-12 h-12 bg-ivory/20 group-hover:bg-ivory/30 rounded-full flex items-center justify-center mx-auto mb-2 transition-colors">
+                  <svg class="w-5 h-5 text-ivory ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p class="font-body text-xs text-ivory/60">Video coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Nestlé -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Online / Digital Ad</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Nestlé</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">KitKat — Take a Break (Digital)</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Playful, lighthearted voiceover for a social media pre-roll campaign targeting 18–35 audience.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 7. Lindt -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">TV Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Lindt</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Excellence Dark 85% — Autumn Collection</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Luxurious, intimate tone for the Lindt Excellence autumn TV spot. Aired on RTS1 and TSR.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 8. Nespresso -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="EN">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Online / Digital Ad</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">EN</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Nespresso</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">What Else? — Ambassador Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Sophisticated narration for Nespresso brand film. Directed by Arcane Productions, Vevey.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 9. SBB -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">SBB CFF FFS</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">SuperSaver Ticket — Autumn Fares</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Clear, friendly announcement of SBB SuperSaver ticket availability for the autumn timetable.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 10. PostFinance -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">E-learning</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">PostFinance</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">E-Finance Tutorial Series</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Step-by-step narration for PostFinance online banking tutorials aimed at new customers.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 11. Rolex -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Brand Film</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Rolex</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Perpetual Spirit — Brand Documentary</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Understated, precise narration for a Rolex heritage brand documentary screened at Baselworld.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 12. EPFL -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="EN">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">E-learning</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">EN</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">EPFL</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Introduction to Machine Learning — MOOC</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Clear, authoritative narration for EPFL's Coursera MOOC on machine learning fundamentals.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 13. Raiffeisen -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Raiffeisen</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Hypothèque à taux fixe — Spring Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Trustworthy, community-focused narration for Raiffeisen's mortgage spring radio campaign.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 14. Omega -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="EN">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">TV Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">EN</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Omega</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Seamaster Planet Ocean — Christmas Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Elegant, confident voiceover for the Omega Seamaster Christmas TV spot. Aired internationally.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 15. Helvetia -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Helvetia Assurances</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Protection Habitation — Radio Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Warm, reassuring tone for Helvetia home insurance. Aired on Radio Lac and One FM.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 16. BCV -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">TV Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">BCV</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Fonds de Placement — Spring TV Spot</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Professional, approachable narration for BCV investment funds campaign. Aired on RTS.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 17. Manor -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Online / Digital Ad</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Manor</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Back to School — Digital Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Upbeat back-to-school campaign targeting parents of school-age children.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 18. Sunrise -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">Sunrise</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Sunrise Up — Unlimited Data Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Energetic, youthful tone for unlimited data offer. Aired on Radio Chablais and Rhône FM.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 19. La Mobilière -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">TV Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">La Mobilière</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">On est là — Brand Campaign</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Warm, human-centred narration for La Mobilière's "On est là" brand campaign. Multi-format delivery.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+        <!-- 20. CHUV -->
+        <div class="demo-card bg-warmgrey p-8 fade-in" data-lang="FR">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Documentary</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-1">CHUV</h3>
+          <p class="font-body text-sm text-charcoal/45 mb-4">Heart Disease Awareness — Public Health Film</p>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Sensitive, clear narration for a CHUV public health documentary on cardiovascular disease.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 italic">Audio file coming soon.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+      <h2 data-i18n="demos.cta.h2" class="font-display text-3xl lg:text-4xl text-ivory mb-4">Need a custom sample?</h2>
+      <p data-i18n="demos.cta.text" class="font-body text-ivory/50 leading-relaxed mb-8">
+        Send me your script and I'll record a short audition — no obligation.
+      </p>
+      <a href="contact.html" data-i18n="demos.cta.btn" class="inline-block bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-10 py-4 transition-colors duration-200">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-ivory/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <p class="font-display text-2xl text-ivory mb-3">Maud Fasel</p>
+          <p class="font-body text-ivory/40 text-sm leading-relaxed">Multilingual voiceover artist.<br>Lausanne, Switzerland.</p>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Pages</p>
+          <div class="flex flex-col gap-3">
+            <a href="demos.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Demos</a>
+            <a href="about.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">About</a>
+            <a href="services.html" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Services</a>
+            <a href="clients.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Clients</a>
+            <a href="contact.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Connect</p>
+          <a href="https://www.linkedin.com/in/maudfasel/" target="_blank" rel="noopener noreferrer" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors block mb-8">LinkedIn</a>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-3">Language</p>
+          <div class="flex gap-3">
+            <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+            <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">FR</a>
+            <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">DE</a>
+            <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">IT</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-ivory/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-xs text-ivory/25">© 2025 Maud Fasel. All rights reserved.</p>
+        <p class="font-body text-xs text-ivory/25">Home studio, Lausanne &nbsp;·&nbsp; <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="hover:text-ivory/50 transition-colors">Arcane Productions, Vevey</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

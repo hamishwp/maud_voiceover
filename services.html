@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Maud Fasel, Multilingual Voiceover Artist</title>
+  <meta name="description" content="Voiceover services by Maud Fasel: radio commercials, TV spots, corporate narration, brand films, e-learning and more — in English, French, German and Italian.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#FAF8F5', charcoal:'#1C1C1C', gold:'#B8963E', 'gold-dk':'#9A7A2E', warmgrey:'#F0EDE8' },
+          fontFamily: { display:['"Playfair Display"','Georgia','serif'], body:['Inter','system-ui','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js"></script>
+  <script src="js/lang-detect.js"></script>
+</head>
+<body class="bg-ivory font-body text-charcoal antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-charcoal/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <a href="index.html" class="font-display text-xl lg:text-2xl text-charcoal tracking-wide">Maud Fasel</a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-sm text-gold font-medium tracking-wide">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-1.5 border-l border-charcoal/15 pl-5">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">FR</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">DE</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">IT</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal" aria-label="Toggle navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-ivory border-t border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-charcoal/65">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-charcoal/65">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-charcoal/65">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-charcoal font-medium">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-charcoal/65">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-charcoal/65">Contact</a>
+        <div class="flex gap-4 pt-4 border-t border-charcoal/10">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 tracking-widest">FR</a>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 tracking-widest">DE</a>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 tracking-widest">IT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="pt-16 lg:pt-20 bg-warmgrey">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <p data-i18n="services.label" class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4 fade-in">What I offer</p>
+      <h1 data-i18n="services.h1" class="font-display text-5xl lg:text-6xl text-charcoal mb-4 fade-in">Services</h1>
+      <p data-i18n="services.subtitle" class="font-body text-charcoal/55 text-lg max-w-lg fade-in leading-relaxed">
+        Radio, TV, corporate and brand narration in English, French, German and Italian.
+      </p>
+    </div>
+  </header>
+
+  <!-- SERVICE CATEGORIES -->
+  <section class="bg-ivory py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Services grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+
+        <!-- Radio Commercial -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="w-10 h-10 bg-gold/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072M12 18.364V5.636M8.464 8.464a5 5 0 000 7.072"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">Radio Commercials</h3>
+          <p class="font-body text-sm text-charcoal/60 leading-relaxed mb-4">
+            30- and 60-second spots for radio broadcast. From direct sale announcements
+            to warm brand storytelling — I adapt tone, pace and style to the brief.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 tracking-wider">EN · FR · DE · IT</p>
+        </div>
+
+        <!-- TV Commercial -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="w-10 h-10 bg-gold/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">TV Commercials</h3>
+          <p class="font-body text-sm text-charcoal/60 leading-relaxed mb-4">
+            Broadcast-ready narration for television spots across Swiss channels and international
+            networks. Experienced in working to picture and matching complex edits precisely.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 tracking-wider">EN · FR · DE · IT</p>
+        </div>
+
+        <!-- Online & Digital -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="w-10 h-10 bg-gold/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">Online & Digital</h3>
+          <p class="font-body text-sm text-charcoal/60 leading-relaxed mb-4">
+            Pre-roll ads, social media video, YouTube campaigns and digital brand content. Shorter,
+            punchier, optimised for the attention economy — without losing the quality.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 tracking-wider">EN · FR · DE · IT</p>
+        </div>
+
+        <!-- Corporate Narration -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="w-10 h-10 bg-gold/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">Corporate Narration</h3>
+          <p class="font-body text-sm text-charcoal/60 leading-relaxed mb-4">
+            Internal communications, investor presentations, annual report films and company
+            explainers. Clear, authoritative and always appropriate for the audience.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 tracking-wider">EN · FR · DE · IT</p>
+        </div>
+
+        <!-- Brand Films -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="w-10 h-10 bg-gold/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">Brand Films</h3>
+          <p class="font-body text-sm text-charcoal/60 leading-relaxed mb-4">
+            Heritage films, founder stories, product launches and luxury brand narratives.
+            Understated, precise narration that stays attentive to the material.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 tracking-wider">EN · FR · DE · IT</p>
+        </div>
+
+        <!-- E-learning & Documentary -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="w-10 h-10 bg-gold/10 flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">E-learning & Documentary</h3>
+          <p class="font-body text-sm text-charcoal/60 leading-relaxed mb-4">
+            Long-form narration that sustains attention and builds trust over time. MOOCs, training
+            modules, public health films and documentary narration.
+          </p>
+          <p class="font-body text-xs text-charcoal/35 tracking-wider">EN · FR · DE · IT</p>
+        </div>
+
+      </div>
+
+      <!-- Language breakdown section -->
+      <div class="border-t border-charcoal/10 pt-16 fade-in">
+        <h2 data-i18n="services.bylang.h2" class="font-display text-3xl lg:text-4xl text-charcoal mb-3">By language</h2>
+        <p data-i18n="services.bylang.intro" class="font-body text-charcoal/50 mb-12 max-w-lg leading-relaxed">
+          Each language version is recorded with full native-level fluency and genuine
+          cultural familiarity — not adapted from another language, but prepared from the source.
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-warmgrey p-6">
+            <p class="font-display text-3xl text-charcoal mb-2">EN</p>
+            <p class="font-body text-sm font-semibold text-charcoal mb-3">English</p>
+            <p class="font-body text-xs text-charcoal/55 leading-relaxed">
+              Broadcast, corporate, luxury and consumer. Suited to Swiss-international and
+              global brand campaigns.
+            </p>
+          </div>
+          <div class="bg-warmgrey p-6">
+            <p class="font-display text-3xl text-charcoal mb-2">FR</p>
+            <p class="font-body text-sm font-semibold text-charcoal mb-3">Français</p>
+            <p class="font-body text-xs text-charcoal/55 leading-relaxed">
+              Swiss French accent. Ideal for Romand campaigns and brands targeting
+              the French-speaking Swiss market.
+            </p>
+          </div>
+          <div class="bg-warmgrey p-6">
+            <p class="font-display text-3xl text-charcoal mb-2">DE</p>
+            <p class="font-body text-sm font-semibold text-charcoal mb-3">Deutsch</p>
+            <p class="font-body text-xs text-charcoal/55 leading-relaxed">
+              Native High German and Swiss German. Suited to campaigns targeting German-speaking
+              Switzerland, Germany and Austria.
+            </p>
+          </div>
+          <div class="bg-warmgrey p-6">
+            <p class="font-display text-3xl text-charcoal mb-2">IT</p>
+            <p class="font-body text-sm font-semibold text-charcoal mb-3">Italiano</p>
+            <p class="font-body text-xs text-charcoal/55 leading-relaxed">
+              B2 level Italian. Available for Italian-language Swiss campaigns and
+              select corporate narration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+      <h2 data-i18n="services.cta.h2" class="font-display text-3xl lg:text-4xl text-ivory mb-4">Have a project in mind?</h2>
+      <p data-i18n="services.cta.text" class="font-body text-ivory/50 leading-relaxed mb-8">
+        Tell me what you need and I'll let you know if I'm the right fit.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="contact.html" data-i18n="services.cta.btn1" class="bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-8 py-4 transition-colors">Get in Touch</a>
+        <a href="demos.html"   data-i18n="services.cta.btn2" class="border border-ivory/30 text-ivory hover:border-ivory font-body font-medium text-sm tracking-wide px-8 py-4 transition-colors">Listen to Demos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-ivory/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <p class="font-display text-2xl text-ivory mb-3">Maud Fasel</p>
+          <p class="font-body text-ivory/40 text-sm leading-relaxed">Multilingual voiceover artist.<br>Lausanne, Switzerland.</p>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Pages</p>
+          <div class="flex flex-col gap-3">
+            <a href="demos.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Demos</a>
+            <a href="about.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">About</a>
+            <a href="services.html" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Services</a>
+            <a href="clients.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Clients</a>
+            <a href="contact.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Connect</p>
+          <a href="https://www.linkedin.com/in/maudfasel/" target="_blank" rel="noopener noreferrer" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors block mb-8">LinkedIn</a>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-3">Language</p>
+          <div class="flex gap-3">
+            <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+            <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">FR</a>
+            <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">DE</a>
+            <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">IT</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-ivory/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-xs text-ivory/25">© 2025 Maud Fasel. All rights reserved.</p>
+        <p class="font-body text-xs text-ivory/25">Home studio, Lausanne &nbsp;·&nbsp; <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="hover:text-ivory/50 transition-colors">Arcane Productions, Vevey</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

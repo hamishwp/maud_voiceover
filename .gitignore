@@ -1,0 +1,20 @@
+# Environment variables — contains sensitive config, never commit
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/settings.json
+*.suo
+*.user
+
+# Node (if any tooling is added later)
+node_modules/
+npm-debug.log*
+
+# Build output (if any)
+dist/
+build/

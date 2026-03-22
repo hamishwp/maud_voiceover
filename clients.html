@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients — Maud Fasel, Multilingual Voiceover Artist</title>
+  <meta name="description" content="Brands and organisations that have worked with Maud Fasel, including Migros, UBS, Lindt, Rolex, Omega, Nestlé, Swisscom, EPFL and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#FAF8F5', charcoal:'#1C1C1C', gold:'#B8963E', 'gold-dk':'#9A7A2E', warmgrey:'#F0EDE8' },
+          fontFamily: { display:['"Playfair Display"','Georgia','serif'], body:['Inter','system-ui','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js"></script>
+  <script src="js/lang-detect.js"></script>
+</head>
+<body class="bg-ivory font-body text-charcoal antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-charcoal/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <a href="index.html" class="font-display text-xl lg:text-2xl text-charcoal tracking-wide">Maud Fasel</a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-sm text-gold font-medium tracking-wide">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-1.5 border-l border-charcoal/15 pl-5">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">FR</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">DE</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">IT</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal" aria-label="Toggle navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-ivory border-t border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-charcoal/65">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-charcoal/65">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-charcoal/65">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-charcoal/65">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-charcoal font-medium">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-charcoal/65">Contact</a>
+        <div class="flex gap-4 pt-4 border-t border-charcoal/10">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 tracking-widest">FR</a>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 tracking-widest">DE</a>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 tracking-widest">IT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="pt-16 lg:pt-20 bg-warmgrey">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <p data-i18n="clients.label" class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4 fade-in">Trust</p>
+      <h1 data-i18n="clients.h1" class="font-display text-5xl lg:text-6xl text-charcoal mb-4 fade-in">Clients</h1>
+      <p data-i18n="clients.subtitle" class="font-body text-charcoal/55 text-lg max-w-lg fade-in leading-relaxed">
+        Brands and organisations across Switzerland, in the language their project required.
+      </p>
+    </div>
+  </header>
+
+  <!-- LOGO GRID -->
+  <section class="bg-ivory py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <p class="font-body text-xs font-semibold tracking-[0.22em] uppercase text-charcoal/40 mb-12 fade-in">
+        As heard on
+      </p>
+
+      <!-- =========================================================
+           LOGO GRID: Individual logos from /Images/Brand_Icons/
+           To add a new logo: add the brand to voiceover_jobs_list.xlsx,
+           re-run scripts/fetch_brand_icons.py, then add a new <div>
+           following the same pattern below.
+           ========================================================= -->
+      <!-- =========================================================
+           Each cell has data-brand="..." matching the exact brand name
+           in voiceover_jobs_list.xlsx. To add a new brand: add it to
+           the spreadsheet, run py scripts/generate_brand_data.py,
+           then add a new <div> below following the same pattern.
+           ========================================================= -->
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-px bg-charcoal/8 border border-charcoal/8 fade-in">
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Migros" role="button" tabindex="0" aria-label="View Migros project details">
+          <img src="Images/Brand_Icons/migros.png"                        alt="Migros"      class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="UBS" role="button" tabindex="0" aria-label="View UBS project details">
+          <img src="Images/Brand_Icons/ubs.png"                           alt="UBS"         class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Coop" role="button" tabindex="0" aria-label="View Coop project details">
+          <img src="Images/Brand_Icons/coop.png"                          alt="Coop"        class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Rolex" role="button" tabindex="0" aria-label="View Rolex project details">
+          <img src="Images/Brand_Icons/rolex.png"                         alt="Rolex"       class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Omega" role="button" tabindex="0" aria-label="View Omega project details">
+          <img src="Images/Brand_Icons/omega.png"                         alt="Omega"       class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Lindt" role="button" tabindex="0" aria-label="View Lindt project details">
+          <img src="Images/Brand_Icons/lindt.png"                         alt="Lindt"       class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Nestlé" role="button" tabindex="0" aria-label="View Nestlé project details">
+          <img src="Images/Brand_Icons/nestlé.png"                        alt="Nestlé"      class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Swisscom" role="button" tabindex="0" aria-label="View Swisscom project details">
+          <img src="Images/Brand_Icons/swisscom.png"                      alt="Swisscom"    class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Swiss International Air Lines" role="button" tabindex="0" aria-label="View Swiss International Air Lines project details">
+          <img src="Images/Brand_Icons/swiss_international_air_lines.png" alt="Swiss"       class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="SBB CFF FFS" role="button" tabindex="0" aria-label="View SBB project details">
+          <img src="Images/Brand_Icons/sbb_cff_ffs.png"                   alt="SBB"         class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="PostFinance" role="button" tabindex="0" aria-label="View PostFinance project details">
+          <img src="Images/Brand_Icons/postfinance.png"                   alt="PostFinance" class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Raiffeisen" role="button" tabindex="0" aria-label="View Raiffeisen project details">
+          <img src="Images/Brand_Icons/raiffeisen.png"                    alt="Raiffeisen"  class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="EPFL" role="button" tabindex="0" aria-label="View EPFL project details">
+          <img src="Images/Brand_Icons/epfl.png"                          alt="EPFL"        class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Helvetia Assurances" role="button" tabindex="0" aria-label="View Helvetia project details">
+          <img src="Images/Brand_Icons/helvetia_assurances.png"           alt="Helvetia"    class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="BCV (Banque Cantonale Vaudoise)" role="button" tabindex="0" aria-label="View BCV project details">
+          <img src="Images/Brand_Icons/bcv_banque_cantonale_vaudoise.png" alt="BCV"         class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Manor" role="button" tabindex="0" aria-label="View Manor project details">
+          <img src="Images/Brand_Icons/manor.png"                         alt="Manor"       class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="Sunrise" role="button" tabindex="0" aria-label="View Sunrise project details">
+          <img src="Images/Brand_Icons/sunrise.png"                       alt="Sunrise"     class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="La Mobilière" role="button" tabindex="0" aria-label="View La Mobilière project details">
+          <img src="Images/Brand_Icons/la_mobilière.png"                  alt="La Mobilière" class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+        <div class="bg-ivory p-8 flex items-center justify-center aspect-square cursor-pointer hover:bg-warmgrey transition-colors" data-brand="CHUV" role="button" tabindex="0" aria-label="View CHUV project details">
+          <img src="Images/Brand_Icons/chuv.png"                          alt="CHUV"        class="max-h-10 max-w-full w-auto transition-all opacity-75 hover:opacity-100 pointer-events-none">
+        </div>
+      </div>
+      <p class="font-body text-xs text-charcoal/35 mt-4 text-center">Click any logo to see project details</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (full set) -->
+  <section class="bg-warmgrey py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-3">Testimonials</p>
+        <h2 class="font-display text-4xl lg:text-5xl text-charcoal">In their words.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- =========================================================
+             TESTIMONIALS: Placeholder quotes — replace with real ones.
+             ========================================================= -->
+        <div class="bg-ivory p-8 fade-in">
+          <p class="font-display text-5xl text-charcoal/20 leading-none mb-4">&ldquo;</p>
+          <p class="font-body text-charcoal/70 leading-relaxed mb-8 italic text-[15px]">
+            Maud's voice has an immediate quality that's difficult to define and impossible to ignore.
+            She understood the brief in seconds and delivered something better than what we imagined.
+          </p>
+          <div>
+            <p class="font-body text-sm font-semibold text-charcoal">Sophie Leclerc</p>
+            <p class="font-body text-xs text-charcoal/45 mt-0.5">Creative Director, Havas Switzerland</p>
+          </div>
+        </div>
+
+        <div class="bg-ivory p-8 fade-in">
+          <p class="font-display text-5xl text-charcoal/20 leading-none mb-4">&ldquo;</p>
+          <p class="font-body text-charcoal/70 leading-relaxed mb-8 italic text-[15px]">
+            First take, no notes. Maud brings a level of instinct and professionalism that makes
+            the whole process effortless. I recommend her without hesitation.
+          </p>
+          <div>
+            <p class="font-body text-sm font-semibold text-charcoal">Marc Burri</p>
+            <p class="font-body text-xs text-charcoal/45 mt-0.5">Senior Producer, Arcane Productions, Vevey</p>
+          </div>
+        </div>
+
+        <div class="bg-ivory p-8 fade-in">
+          <p class="font-display text-5xl text-charcoal/20 leading-none mb-4">&ldquo;</p>
+          <p class="font-body text-charcoal/70 leading-relaxed mb-8 italic text-[15px]">
+            We needed French and German recorded back-to-back in a tight window.
+            Maud delivered both flawlessly. Our clients were genuinely delighted.
+          </p>
+          <div>
+            <p class="font-body text-sm font-semibold text-charcoal">Thomas Kramer</p>
+            <p class="font-body text-xs text-charcoal/45 mt-0.5">Account Director, Publicis Zürich</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+      <h2 data-i18n="clients.cta.h2" class="font-display text-3xl lg:text-4xl text-ivory mb-4">Get in touch.</h2>
+      <p data-i18n="clients.cta.text" class="font-body text-ivory/50 leading-relaxed mb-8">
+        If you have a project in mind, I'd be glad to hear about it.
+      </p>
+      <a href="contact.html" data-i18n="clients.cta.btn" class="inline-block bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-10 py-4 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-ivory/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <p class="font-display text-2xl text-ivory mb-3">Maud Fasel</p>
+          <p class="font-body text-ivory/40 text-sm leading-relaxed">Multilingual voiceover artist.<br>Lausanne, Switzerland.</p>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Pages</p>
+          <div class="flex flex-col gap-3">
+            <a href="demos.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Demos</a>
+            <a href="about.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">About</a>
+            <a href="services.html" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Services</a>
+            <a href="clients.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Clients</a>
+            <a href="contact.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Connect</p>
+          <a href="https://www.linkedin.com/in/maudfasel/" target="_blank" rel="noopener noreferrer" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors block mb-8">LinkedIn</a>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-3">Language</p>
+          <div class="flex gap-3">
+            <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+            <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">FR</a>
+            <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">DE</a>
+            <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">IT</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-ivory/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-xs text-ivory/25">© 2025 Maud Fasel. All rights reserved.</p>
+        <p class="font-body text-xs text-ivory/25">Home studio, Lausanne &nbsp;·&nbsp; <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="hover:text-ivory/50 transition-colors">Arcane Productions, Vevey</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BRAND POPUP MODAL
+       Populated dynamically from js/brand-data.js (auto-generated from spreadsheet).
+       To update: edit voiceover_jobs_list.xlsx, then run: py scripts/generate_brand_data.py -->
+  <div id="brand-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden" aria-modal="true" role="dialog" aria-labelledby="modal-brand-name">
+    <!-- Overlay -->
+    <div id="brand-modal-overlay" class="absolute inset-0 bg-charcoal/75"></div>
+    <!-- Panel -->
+    <div class="relative bg-ivory max-w-lg w-full shadow-2xl z-10 max-h-[85vh] flex flex-col">
+      <!-- Header -->
+      <div class="flex items-start justify-between px-8 pt-8 pb-6 border-b border-charcoal/10 shrink-0">
+        <h3 class="font-display text-2xl text-charcoal leading-tight" id="modal-brand-name"></h3>
+        <button id="brand-modal-close" class="text-charcoal/35 hover:text-charcoal transition-colors ml-6 mt-1 shrink-0" aria-label="Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <!-- Jobs list -->
+      <div id="modal-jobs" class="px-8 py-6 space-y-6 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <script src="js/brand-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var modal    = document.getElementById('brand-modal');
+      var overlay  = document.getElementById('brand-modal-overlay');
+      var closeBtn = document.getElementById('brand-modal-close');
+      var modalName = document.getElementById('modal-brand-name');
+      var modalJobs = document.getElementById('modal-jobs');
+
+      function formatDuration(secs) {
+        var s = parseInt(secs, 10);
+        if (isNaN(s)) return secs + ' sec';
+        if (s < 60) return s + ' sec';
+        var m = Math.floor(s / 60), rem = s % 60;
+        return rem > 0 ? m + ' min ' + rem + ' sec' : m + ' min';
+      }
+
+      function esc(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      function openModal(brandKey) {
+        var jobs = window.BRAND_DATA && window.BRAND_DATA[brandKey];
+        if (!jobs || !jobs.length) return;
+
+        modalName.textContent = brandKey;
+        modalJobs.innerHTML = '';
+
+        jobs.forEach(function (job) {
+          var div = document.createElement('div');
+          div.className = 'pb-6 border-b border-charcoal/8 last:border-0 last:pb-0';
+
+          var html = '';
+
+          // Project name + language badge
+          if (job.project || job.language) {
+            html += '<div class="flex items-start justify-between gap-4 mb-2">';
+            if (job.project) html += '<p class="font-body text-sm font-semibold text-charcoal">' + esc(job.project) + '</p>';
+            if (job.language) html += '<span class="shrink-0 font-body text-[11px] font-semibold tracking-widest text-gold border border-gold/50 px-2 py-0.5">' + esc(job.language) + '</span>';
+            html += '</div>';
+          }
+
+          // Category · duration
+          var meta = [];
+          if (job.category) meta.push(esc(job.category));
+          if (job.duration) meta.push(formatDuration(job.duration));
+          if (meta.length) html += '<p class="font-body text-xs text-charcoal/45 mb-3">' + meta.join(' &nbsp;&middot;&nbsp; ') + '</p>';
+
+          // Description
+          if (job.description) html += '<p class="font-body text-sm text-charcoal/65 leading-relaxed">' + esc(job.description) + '</p>';
+
+          div.innerHTML = html;
+          modalJobs.appendChild(div);
+        });
+
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      // Wire up logo clicks and keyboard
+      document.querySelectorAll('[data-brand]').forEach(function (el) {
+        el.addEventListener('click', function () { openModal(el.dataset.brand); });
+        el.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(el.dataset.brand); }
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    })();
+  </script>
+</body>
+</html>

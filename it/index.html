@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maud Fasel — Doppiatrice multilingue | Losanna, Svizzera</title>
+  <meta name="description" content="Doppiatrice professionista multilingue con sede a Losanna, Svizzera. Specializzata in spot radio e TV, film aziendali e contenuti di marca in inglese, francese, tedesco e italiano.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#FAF8F5', charcoal:'#1C1C1C', gold:'#B8963E', 'gold-dk':'#9A7A2E', warmgrey:'#F0EDE8' },
+          fontFamily: { display:['"Playfair Display"','Georgia','serif'], body:['Inter','system-ui','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/i18n.js"></script>
+  <script src="../js/lang-detect.js"></script>
+</head>
+
+<body class="bg-ivory font-body text-charcoal antialiased">
+
+  <!-- NAV — IT version -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-charcoal/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <a href="../index.html" class="font-display text-xl lg:text-2xl text-charcoal tracking-wide">Maud Fasel</a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="../it/index.html"           data-i18n="nav.home"     class="font-body text-sm text-gold font-medium tracking-wide">Home</a>
+        <a href="../demos.html"    data-i18n="nav.demos"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Demo</a>
+        <a href="../about.html"    data-i18n="nav.about"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Chi sono</a>
+        <a href="../services.html" data-i18n="nav.services" class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Servizi</a>
+        <a href="../clients.html"  data-i18n="nav.clients"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Clienti</a>
+        <a href="../contact.html"  data-i18n="nav.contact"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Contatti</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-1.5 border-l border-charcoal/15 pl-5">
+          <a href="../index.html"    onclick="setLang('en')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">EN</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="index.html" onclick="setLang('fr')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">FR</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="../de/index.html" onclick="setLang('de')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">DE</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="../it/index.html" onclick="setLang('it')" class="font-body text-xs font-semibold text-gold tracking-widest">IT</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-ivory border-t border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="../it/index.html"           data-i18n="nav.home"     class="font-body text-charcoal font-medium">Home</a>
+        <a href="../demos.html"    data-i18n="nav.demos"    class="font-body text-charcoal/65">Demo</a>
+        <a href="../about.html"    data-i18n="nav.about"    class="font-body text-charcoal/65">Chi sono</a>
+        <a href="../services.html" data-i18n="nav.services" class="font-body text-charcoal/65">Servizi</a>
+        <a href="../clients.html"  data-i18n="nav.clients"  class="font-body text-charcoal/65">Clienti</a>
+        <a href="../contact.html"  data-i18n="nav.contact"  class="font-body text-charcoal/65">Contatti</a>
+        <div class="flex gap-4 pt-4 border-t border-charcoal/10">
+          <a href="../index.html"    onclick="setLang('en')" class="font-body text-xs text-charcoal/40 tracking-widest">EN</a>
+          <a href="index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 tracking-widest">FR</a>
+          <a href="../de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 tracking-widest">DE</a>
+          <a href="../it/index.html" onclick="setLang('it')" class="font-body text-xs font-semibold text-gold tracking-widest">IT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="min-h-screen bg-ivory flex items-center pt-16 lg:pt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-24 lg:py-32">
+      <div class="order-2 lg:order-1 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-6">
+          Doppiatrice &nbsp;·&nbsp; Losanna, Svizzera
+        </p>
+        <!-- =========================================================
+             HEADLINE IT: Placeholder — replace with Maud's preferred
+             Italian tagline.
+             ========================================================= -->
+        <h1 data-i18n-html="hero.h1" class="font-display text-5xl lg:text-6xl xl:text-[5.5rem] text-charcoal leading-[1.08] mb-6">
+          In studio dal 2004.<br>
+          Quattro lingue,<br>
+          <em>una voce.</em>
+        </h1>
+        <p class="font-body text-charcoal/60 text-lg leading-relaxed mb-9 max-w-md">
+          Specialista broadcast multilingue in inglese, francese, tedesco e italiano.
+          Spot radiofonici e televisivi, film aziendali, contenuti di marca.
+        </p>
+        <div class="flex gap-2 mb-10">
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">EN</span>
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">FR</span>
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">DE</span>
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">IT</span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="../demos.html"   class="bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-8 py-4 transition-colors">Ascolta le demo</a>
+          <a href="../contact.html" class="border border-charcoal text-charcoal hover:bg-charcoal hover:text-ivory font-body font-medium text-sm tracking-wide px-8 py-4 transition-colors">Contattami</a>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in">
+        <div class="relative">
+          <img src="../Images/0ef5b7d5-9985-41f7-bd5d-eed655348d50.JPG"
+               alt="Maud Fasel, doppiatrice multilingue, Losanna"
+               class="relative z-10 w-64 h-80 sm:w-80 sm:h-[420px] lg:w-96 lg:h-[500px] object-cover object-top shadow-xl">
+          <div class="absolute top-5 left-5 w-full h-full border-2 border-gold/50 z-0 pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-warmgrey py-24">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-12 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-3">Guarda e ascolta</p>
+        <h2 class="font-display text-4xl lg:text-5xl text-charcoal">Il mio lavoro in video</h2>
+      </div>
+      <div class="yt-container shadow-xl fade-in cursor-pointer group"
+           onclick="loadYouTube(this, 'jtedAQ8kv3o')" role="button" aria-label="Riproduci video">
+        <img src="https://img.youtube.com/vi/jtedAQ8kv3o/maxresdefault.jpg" alt="Maud Fasel — voiceover" loading="lazy">
+        <div class="absolute inset-0 bg-charcoal/25 group-hover:bg-charcoal/35 transition-colors pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-20 h-20 bg-ivory/90 group-hover:bg-ivory group-hover:scale-110 rounded-full flex items-center justify-center transition-all shadow-lg">
+            <svg class="w-7 h-7 text-charcoal ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-24">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+      <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4">Contatti</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-ivory mb-6">Hai un progetto in mente?</h2>
+      <p class="font-body text-ivory/50 leading-relaxed mb-10 max-w-md mx-auto">
+        Che il tuo brief sia già definito o che tu sia ancora nelle prime fasi,
+        sono disponibile a parlarne. Di solito rispondo entro 24 ore.
+      </p>
+      <a href="../contact.html" class="inline-block bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-10 py-4 transition-colors">
+        Inviami un messaggio
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-ivory/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <p class="font-display text-2xl text-ivory mb-3">Maud Fasel</p>
+          <p class="font-body text-ivory/40 text-sm leading-relaxed">Doppiatrice multilingue.<br>Losanna, Svizzera.</p>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Pagine</p>
+          <div class="flex flex-col gap-3">
+            <a href="../demos.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Demo</a>
+            <a href="../about.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Chi sono</a>
+            <a href="../services.html" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Servizi</a>
+            <a href="../clients.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Clienti</a>
+            <a href="../contact.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Contatti</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Connetti</p>
+          <a href="https://www.linkedin.com/in/maudfasel/" target="_blank" rel="noopener noreferrer" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors block mb-8">LinkedIn</a>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-3">Lingua</p>
+          <div class="flex gap-3">
+            <a href="../index.html"    onclick="setLang('en')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">EN</a>
+            <a href="index.html" onclick="setLang('fr')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">FR</a>
+            <a href="../de/index.html" onclick="setLang('de')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">DE</a>
+            <a href="../it/index.html" onclick="setLang('it')" class="font-body text-xs font-semibold text-gold tracking-widest">IT</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-ivory/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-xs text-ivory/25">© 2025 Maud Fasel. Tutti i diritti riservati.</p>
+        <p class="font-body text-xs text-ivory/25">Studio di casa, Losanna &nbsp;·&nbsp; <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="hover:text-ivory/50 transition-colors">Arcane Productions, Vevey</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

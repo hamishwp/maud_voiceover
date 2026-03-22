@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Maud Fasel, Multilingual Voiceover Artist</title>
+  <meta name="description" content="Maud Fasel is a multilingual voiceover artist based in Lausanne, Switzerland, specialising in broadcast commercials and corporate content in English, French, German and Italian.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#FAF8F5', charcoal:'#1C1C1C', gold:'#B8963E', 'gold-dk':'#9A7A2E', warmgrey:'#F0EDE8' },
+          fontFamily: { display:['"Playfair Display"','Georgia','serif'], body:['Inter','system-ui','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js"></script>
+  <script src="js/lang-detect.js"></script>
+</head>
+<body class="bg-ivory font-body text-charcoal antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-charcoal/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <a href="index.html" class="font-display text-xl lg:text-2xl text-charcoal tracking-wide">Maud Fasel</a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-sm text-gold font-medium tracking-wide">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-1.5 border-l border-charcoal/15 pl-5">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">FR</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">DE</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 hover:text-gold tracking-widest transition-colors">IT</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-charcoal" aria-label="Toggle navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-ivory border-t border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-charcoal/65">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-charcoal/65">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-charcoal font-medium">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-charcoal/65">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-charcoal/65">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-charcoal/65">Contact</a>
+        <div class="flex gap-4 pt-4 border-t border-charcoal/10">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-charcoal/40 tracking-widest">FR</a>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-charcoal/40 tracking-widest">DE</a>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-charcoal/40 tracking-widest">IT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-16 lg:pt-20 bg-warmgrey">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-end py-20 lg:py-28">
+      <div class="fade-in">
+        <p data-i18n="about.label" class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4">About</p>
+        <h1 data-i18n="about.h1" class="font-display text-5xl lg:text-6xl text-charcoal leading-tight">Maud Fasel</h1>
+        <p data-i18n="about.subtitle" class="font-body text-charcoal/50 text-lg mt-4">Multilingual Voiceover Artist · Lausanne, Switzerland</p>
+      </div>
+      <div class="flex justify-center lg:justify-end fade-in">
+        <img
+          src="Images/0ef5b7d5-9985-41f7-bd5d-eed655348d50.JPG"
+          alt="Maud Fasel"
+          class="w-48 h-60 lg:w-56 lg:h-72 object-cover object-top shadow-lg"
+        >
+      </div>
+    </div>
+  </header>
+
+  <!-- BIO -->
+  <section class="bg-ivory py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-3 gap-16">
+
+      <!-- Tall portrait sidebar -->
+      <div class="lg:col-span-1 flex justify-center fade-in order-2 lg:order-1">
+        <div class="relative">
+          <img
+            src="Images/IMG_3677.jpg"
+            alt="Maud Fasel, voiceover artist"
+            class="relative z-10 w-48 lg:w-full max-w-xs object-cover shadow-lg"
+          >
+          <div class="absolute top-4 left-4 w-full h-full max-w-xs border-2 border-gold/40 z-0 pointer-events-none"></div>
+        </div>
+      </div>
+
+      <!-- Bio text -->
+      <div class="lg:col-span-2 fade-in order-1 lg:order-2">
+        <h2 data-i18n="about.h2" class="font-display text-3xl lg:text-4xl text-charcoal mb-8">The story behind the voice.</h2>
+
+        <div class="space-y-5 font-body text-charcoal/70 leading-relaxed">
+          <p>
+            I'm Maud Fasel — a multilingual voiceover artist based in Lausanne, Switzerland. Growing up
+            between Lausanne, Zurich and Canberra gave me something no language class can teach: the instinct to
+            switch not just between words, but between voices. English, French and Swiss German are native to me;
+            Italian rounds out the picture at B2 level.
+            Four languages, four distinct registers, all available to your project.
+          </p>
+          <p>
+            I've been lending my voice professionally since 2004 — to radio and TV commercials, tourist
+            guides, audiobooks, corporate telephony, and digital content of every kind. In 2017 I formalised
+            that experience with a professional certification from the London City Academy. The training
+            sharpened what years of broadcast work had already built: the ability to read a brief quickly,
+            inhabit a brand persona, and deliver a take that sounds effortless precisely because it isn't.
+          </p>
+          <p>
+            My background in arts and cultural management — a Master's from King's College London,
+            years coordinating brand partnerships at the Montreux Jazz Festival and the Fondation Beyeler
+            in Basel — has shaped the way I approach every script. I understand what a client is trying
+            to communicate, not just what they've written. That instinct for brand, audience and tone
+            is baked into every performance.
+          </p>
+          <p>
+            I record from my home studio in Lausanne and work regularly with
+            <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-gold-dk underline underline-offset-2 transition-colors">Arcane Productions</a>
+            in Vevey. Whether the session is in-person or remote, the result is the same: a clean,
+            broadcast-quality recording, on brief and on time.
+          </p>
+        </div>
+
+        <!-- Language competencies -->
+        <div class="mt-12 pt-10 border-t border-charcoal/10">
+          <p class="font-body text-xs font-semibold tracking-[0.22em] uppercase text-charcoal/40 mb-6">Languages</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-warmgrey p-4 text-center">
+              <p class="font-display text-2xl text-charcoal mb-1">EN</p>
+              <p class="font-body text-xs text-charcoal/45">English</p>
+              <p class="font-body text-xs text-gold mt-1">Native fluency</p>
+            </div>
+            <div class="bg-warmgrey p-4 text-center">
+              <p class="font-display text-2xl text-charcoal mb-1">FR</p>
+              <p class="font-body text-xs text-charcoal/45">Français</p>
+              <p class="font-body text-xs text-gold mt-1">Native fluency</p>
+            </div>
+            <div class="bg-warmgrey p-4 text-center">
+              <p class="font-display text-2xl text-charcoal mb-1">DE</p>
+              <p class="font-body text-xs text-charcoal/45">Deutsch · Schweizerdeutsch</p>
+              <p class="font-body text-xs text-gold mt-1">Native fluency</p>
+            </div>
+            <div class="bg-warmgrey p-4 text-center">
+              <p class="font-display text-2xl text-charcoal mb-1">IT</p>
+              <p class="font-body text-xs text-charcoal/45">Italiano</p>
+              <p class="font-body text-xs text-gold mt-1">B2 level</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio setup -->
+        <div class="mt-12 pt-10 border-t border-charcoal/10 fade-in">
+          <p class="font-body text-xs font-semibold tracking-[0.22em] uppercase text-charcoal/40 mb-6">Studio</p>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <p class="font-body text-sm font-semibold text-charcoal mb-2">Home Studio — Lausanne</p>
+              <!-- =====================================================
+                   STUDIO DETAILS: Replace with real equipment list.
+                   Clients care about: microphone, DAW, acoustic setup,
+                   remote session capability (Source-Connect, Cleanfeed).
+                   ===================================================== -->
+              <p class="font-body text-sm text-charcoal/60 leading-relaxed">
+                Acoustically treated home studio. Professional-grade condenser microphone.
+                Broadcast-quality recordings delivered in any format required.
+                Remote session capability available on request.
+              </p>
+            </div>
+            <div>
+              <p class="font-body text-sm font-semibold text-charcoal mb-2">
+                <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer"
+                   class="hover:text-gold transition-colors">Arcane Productions</a> — Vevey
+              </p>
+              <p class="font-body text-sm text-charcoal/60 leading-relaxed">
+                Full-service production studio in Vevey. Available for directed sessions,
+                multi-language recording days, and post-production.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Training & background -->
+        <div class="mt-12 pt-10 border-t border-charcoal/10 fade-in">
+          <p class="font-body text-xs font-semibold tracking-[0.22em] uppercase text-charcoal/40 mb-6">Training &amp; Background</p>
+          <div class="space-y-4">
+            <div class="flex gap-4 items-start">
+              <span class="font-body text-xs text-gold font-semibold tracking-wide shrink-0 pt-0.5">2017</span>
+              <div>
+                <p class="font-body text-sm font-semibold text-charcoal">Professional Voiceover Certification</p>
+                <p class="font-body text-xs text-charcoal/50">London City Academy</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="font-body text-xs text-gold font-semibold tracking-wide shrink-0 pt-0.5">2017</span>
+              <div>
+                <p class="font-body text-sm font-semibold text-charcoal">MA, Arts and Cultural Management <span class="text-charcoal/40 font-normal">— Merit</span></p>
+                <p class="font-body text-xs text-charcoal/50">King's College London</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="font-body text-xs text-gold font-semibold tracking-wide shrink-0 pt-0.5">2015</span>
+              <div>
+                <p class="font-body text-sm font-semibold text-charcoal">BA, French Language &amp; Literature / Business Communication <span class="text-charcoal/40 font-normal">— Summa cum laude</span></p>
+                <p class="font-body text-xs text-charcoal/50">Université de Fribourg</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="font-body text-xs text-gold font-semibold tracking-wide shrink-0 pt-0.5">2004</span>
+              <div>
+                <p class="font-body text-sm font-semibold text-charcoal">Voiceover work begins</p>
+                <p class="font-body text-xs text-charcoal/50">20+ years of broadcast, commercial and corporate recording</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+      <h2 data-i18n="about.cta.h2" class="font-display text-3xl lg:text-4xl text-ivory mb-4">Let's work together.</h2>
+      <p data-i18n="about.cta.text" class="font-body text-ivory/50 leading-relaxed mb-8">
+        Tell me about your project and I'll get back to you within 24 hours.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="contact.html" data-i18n="about.cta.btn1" class="bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-8 py-4 transition-colors">Get in Touch</a>
+        <a href="demos.html"   data-i18n="about.cta.btn2" class="border border-ivory/30 text-ivory hover:border-ivory hover:text-ivory font-body font-medium text-sm tracking-wide px-8 py-4 transition-colors">Listen to Demos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-ivory/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <p class="font-display text-2xl text-ivory mb-3">Maud Fasel</p>
+          <p class="font-body text-ivory/40 text-sm leading-relaxed">Multilingual voiceover artist.<br>Lausanne, Switzerland.</p>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Pages</p>
+          <div class="flex flex-col gap-3">
+            <a href="demos.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Demos</a>
+            <a href="about.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">About</a>
+            <a href="services.html" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Services</a>
+            <a href="clients.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Clients</a>
+            <a href="contact.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Connect</p>
+          <a href="https://www.linkedin.com/in/maudfasel/" target="_blank" rel="noopener noreferrer" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors block mb-8">LinkedIn</a>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-3">Language</p>
+          <div class="flex gap-3">
+            <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+            <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">FR</a>
+            <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">DE</a>
+            <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs text-ivory/35 hover:text-gold tracking-widest transition-colors">IT</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-ivory/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-xs text-ivory/25">© 2025 Maud Fasel. All rights reserved.</p>
+        <p class="font-body text-xs text-ivory/25">Home studio, Lausanne &nbsp;·&nbsp; <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="hover:text-ivory/50 transition-colors">Arcane Productions, Vevey</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

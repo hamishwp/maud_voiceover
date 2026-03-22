@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maud Fasel — Multilingual Voiceover Artist | Lausanne, Switzerland</title>
+  <meta name="description" content="Professional multilingual voiceover artist based in Lausanne, Switzerland. English, French, German and Italian. Broadcast commercials, corporate films and brand content.">
+  <meta name="keywords" content="voiceover artist, voice actress, multilingual voice, French voiceover, German voiceover, Swiss voiceover, radio commercial voice, TV commercial voice, Lausanne">
+  <meta property="og:title" content="Maud Fasel — Multilingual Voiceover Artist">
+  <meta property="og:description" content="Broadcast-quality voiceover in English, French, German and Italian. Based in Lausanne, Switzerland.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maudsvoice.com">
+
+  <!-- Google Fonts: Playfair Display (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN — no installation or build step required -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory:    '#FAF8F5',
+            charcoal: '#1C1C1C',
+            gold:     '#B8963E',
+            'gold-dk':'#9A7A2E',
+            warmgrey: '#F0EDE8',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Translations for all 4 languages (must load before main.js) -->
+  <script src="js/i18n.js"></script>
+  <!-- Language auto-detection: runs before page renders to avoid flash -->
+  <script src="js/lang-detect.js"></script>
+</head>
+
+<body class="bg-ivory font-body text-charcoal antialiased">
+
+  <!-- ================================================================
+       NAVIGATION
+       To update menu links or language options, edit this block.
+       The same nav appears on every page — keep them in sync.
+       ================================================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-charcoal/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+
+      <!-- Wordmark -->
+      <a href="index.html" class="font-display text-xl lg:text-2xl text-charcoal tracking-wide">Maud Fasel</a>
+
+      <!-- Desktop navigation links -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-sm text-gold font-medium tracking-wide">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-sm text-charcoal/65 hover:text-gold tracking-wide transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <!-- Language switcher (desktop) — current language highlighted in gold -->
+        <div class="hidden lg:flex items-center gap-1.5 border-l border-charcoal/15 pl-5">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold    tracking-widest">EN</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">FR</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">DE</a>
+          <span class="text-charcoal/20">|</span>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs font-medium text-charcoal/40 hover:text-gold tracking-widest transition-colors">IT</a>
+        </div>
+        <!-- Mobile menu toggle -->
+        <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu"
+                class="lg:hidden p-2 text-charcoal" aria-label="Toggle navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-ivory border-t border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="index.html"    data-i18n="nav.home"     class="font-body text-charcoal font-medium">Home</a>
+        <a href="demos.html"    data-i18n="nav.demos"    class="font-body text-charcoal/65">Demos</a>
+        <a href="about.html"    data-i18n="nav.about"    class="font-body text-charcoal/65">About</a>
+        <a href="services.html" data-i18n="nav.services" class="font-body text-charcoal/65">Services</a>
+        <a href="clients.html"  data-i18n="nav.clients"  class="font-body text-charcoal/65">Clients</a>
+        <a href="contact.html"  data-i18n="nav.contact"  class="font-body text-charcoal/65">Contact</a>
+        <div class="flex gap-4 pt-4 border-t border-charcoal/10">
+          <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+          <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs font-medium text-charcoal/40 tracking-widest">FR</a>
+          <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs font-medium text-charcoal/40 tracking-widest">DE</a>
+          <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs font-medium text-charcoal/40 tracking-widest">IT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       HERO SECTION
+       ================================================================ -->
+  <section class="min-h-screen bg-ivory flex items-center pt-16 lg:pt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-24 lg:py-32">
+
+      <!-- Text content (right on mobile stacking, left on desktop) -->
+      <div class="order-2 lg:order-1 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-6">
+          Voiceover Artist &nbsp;·&nbsp; Lausanne, Switzerland
+        </p>
+
+        <!-- =========================================================
+             HEADLINE: Replace with Maud's preferred tagline.
+             ========================================================= -->
+        <h1 data-i18n-html="hero.h1" class="font-display text-5xl lg:text-6xl xl:text-[5.5rem] text-charcoal leading-[1.08] mb-6">
+          In the studio since 2004.<br>
+          Four languages,<br>
+          <em>one voice.</em>
+        </h1>
+
+        <!-- =========================================================
+             SUBHEADLINE: Update to reflect Maud's actual specialisms.
+             ========================================================= -->
+        <p class="font-body text-charcoal/60 text-lg leading-relaxed mb-9 max-w-md">
+          Multilingual broadcast specialist working in English, French, German and Italian.
+          Radio and TV commercials, corporate films, brand narratives.
+        </p>
+
+        <!-- Language badges -->
+        <div class="flex gap-2 mb-10">
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">EN</span>
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">FR</span>
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">DE</span>
+          <span class="font-body text-[11px] font-medium tracking-[0.22em] px-3 py-1.5 border border-charcoal/20 text-charcoal/55">IT</span>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-wrap gap-4">
+          <a href="demos.html"  class="bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-8 py-4 transition-colors duration-200">
+            Listen to Demos
+          </a>
+          <a href="contact.html" class="border border-charcoal text-charcoal hover:bg-charcoal hover:text-ivory font-body font-medium text-sm tracking-wide px-8 py-4 transition-colors duration-200">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+
+      <!-- Portrait photo -->
+      <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in">
+        <div class="relative">
+          <!-- =========================================================
+               PHOTO: Maud's close-up portrait. Replace src when a
+               higher-resolution professional headshot is available.
+               ========================================================= -->
+          <img
+            src="Images/0ef5b7d5-9985-41f7-bd5d-eed655348d50.JPG"
+            alt="Maud Fasel, multilingual voiceover artist based in Lausanne"
+            class="relative z-10 w-64 h-80 sm:w-80 sm:h-[420px] lg:w-96 lg:h-[500px] object-cover object-top shadow-xl"
+          >
+          <!-- Gold accent border offset behind the photo -->
+          <div class="absolute top-5 left-5 w-full h-full border-2 border-gold/50 z-0 pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator (desktop only) -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-charcoal/25 pointer-events-none">
+      <span class="font-body text-[10px] tracking-[0.25em] uppercase">Scroll</span>
+      <div class="w-px h-10 bg-charcoal/20"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       YOUTUBE VIDEO SECTION
+       ================================================================ -->
+  <section class="bg-warmgrey py-24">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-12 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-3">See &amp; Hear</p>
+        <h2 class="font-display text-4xl lg:text-5xl text-charcoal">Watch My Work</h2>
+      </div>
+
+      <!-- =========================================================
+           YOUTUBE FACADE: Click to load the video player.
+           The video ID (jtedAQ8kv3o) comes from HERO_VIDEO_ID in .env
+           To change the video: replace both instances of the ID below.
+           ========================================================= -->
+      <div class="yt-container shadow-xl fade-in cursor-pointer group"
+           onclick="loadYouTube(this, 'jtedAQ8kv3o')"
+           role="button"
+           aria-label="Play video — Maud Fasel voiceover showreel">
+        <img
+          src="https://img.youtube.com/vi/jtedAQ8kv3o/maxresdefault.jpg"
+          alt="Watch Maud Fasel voiceover work"
+          loading="lazy"
+        >
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-charcoal/25 group-hover:bg-charcoal/35 transition-colors duration-200 pointer-events-none"></div>
+        <!-- Play button -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-20 h-20 bg-ivory/90 group-hover:bg-ivory group-hover:scale-110 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg">
+            <svg class="w-7 h-7 text-charcoal ml-1" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FEATURED DEMOS
+       ================================================================ -->
+  <section class="bg-ivory py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-3">Listen</p>
+        <h2 class="font-display text-4xl lg:text-5xl text-charcoal mb-4">Featured Demos</h2>
+        <p class="font-body text-charcoal/50 max-w-sm mx-auto leading-relaxed">
+          A selection of recent broadcast work across categories and languages.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+
+        <!-- =========================================================
+             DEMO CARD 1
+             To update: change title, description, and audio src.
+             Audio files go in /Audios/ — .m4a and .mp3 both work.
+             ========================================================= -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Radio Commercial</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-2">Migros — Support my Camp</h3>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Summer campaign promoting Migros holiday activities for Swiss families.
+          </p>
+          <audio controls preload="none" class="w-full">
+            <source src="Audios/Nouvel enregistrement.m4a" type="audio/mp4">
+            <p class="text-sm text-charcoal/50">
+              Audio not supported. <a href="Audios/Nouvel enregistrement.m4a" class="text-gold underline">Download</a>
+            </p>
+          </audio>
+        </div>
+
+        <!-- DEMO CARD 2 -->
+        <div class="bg-warmgrey p-8 fade-in">
+          <div class="flex items-start justify-between mb-5">
+            <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Corporate Narration</span>
+            <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">EN</span>
+          </div>
+          <h3 class="font-display text-xl text-charcoal mb-2">UBS — Knowledge Network</h3>
+          <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+            Narration for a wealth management series delivered to an international professional audience.
+          </p>
+          <audio controls preload="none" class="w-full">
+            <source src="Audios/Nouvel enregistrement 2.m4a" type="audio/mp4">
+            <p class="text-sm text-charcoal/50">
+              Audio not supported. <a href="Audios/Nouvel enregistrement 2.m4a" class="text-gold underline">Download</a>
+            </p>
+          </audio>
+        </div>
+
+        <!-- DEMO CARD 3 — teaser for demos page -->
+        <div class="bg-warmgrey p-8 flex flex-col justify-between fade-in">
+          <div>
+            <div class="flex items-start justify-between mb-5">
+              <span class="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-gold">Brand Film</span>
+              <span class="font-body text-[10px] font-medium text-charcoal/40 border border-charcoal/20 px-2 py-0.5 tracking-widest">FR</span>
+            </div>
+            <h3 class="font-display text-xl text-charcoal mb-2">Rolex — Perpetual Spirit</h3>
+            <p class="font-body text-sm text-charcoal/55 leading-relaxed mb-6">
+              Understated narration for a Rolex heritage brand documentary screened at Baselworld.
+            </p>
+          </div>
+          <a href="demos.html" class="inline-flex items-center gap-2 font-body text-sm font-semibold text-gold hover:text-gold-dk transition-colors group">
+            View the full demo library
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="text-center fade-in">
+        <a href="demos.html" class="inline-block border border-charcoal text-charcoal hover:bg-charcoal hover:text-ivory font-body font-medium text-sm tracking-wide px-10 py-4 transition-colors duration-200">
+          View All Demos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CLIENT LOGO STRIP
+       ================================================================ -->
+  <section class="bg-warmgrey py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <p class="font-body text-charcoal/40 text-[10px] font-semibold tracking-[0.28em] uppercase text-center mb-12 fade-in">
+        Projects for brands and organisations across Switzerland
+      </p>
+
+      <!-- =========================================================
+           LOGO MARQUEE: Logos scroll automatically.
+           Individual logo files are in /Images/Brand_Icons/
+           Re-run scripts/fetch_brand_icons.py after updating the xlsx
+           to refresh logos. Logos are duplicated below for seamless loop.
+           ========================================================= -->
+      <div class="marquee-wrapper fade-in">
+        <div class="marquee-track gap-0">
+
+          <!-- Set 1 -->
+          <div class="flex items-center gap-14 px-7">
+            <img src="Images/Brand_Icons/migros.png"                       alt="Migros"                    class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/ubs.png"                          alt="UBS"                       class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/coop.png"                         alt="Coop"                      class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/swisscom.png"                     alt="Swisscom"                  class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/swiss_international_air_lines.png" alt="Swiss International Air Lines" class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/nestlé.png"                       alt="Nestlé"                    class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/lindt.png"                        alt="Lindt"                     class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/sbb_cff_ffs.png"                  alt="SBB CFF FFS"               class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/postfinance.png"                  alt="PostFinance"               class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/rolex.png"                        alt="Rolex"                     class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/epfl.png"                         alt="EPFL"                      class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/raiffeisen.png"                   alt="Raiffeisen"                class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/omega.png"                        alt="Omega"                     class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/helvetia_assurances.png"          alt="Helvetia"                  class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/bcv_banque_cantonale_vaudoise.png" alt="BCV"                      class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/manor.png"                        alt="Manor"                     class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/sunrise.png"                      alt="Sunrise"                   class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/la_mobilière.png"                 alt="La Mobilière"              class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+            <img src="Images/Brand_Icons/chuv.png"                         alt="CHUV"                      class="h-7 w-auto opacity-40 hover:opacity-70 transition-opacity">
+          </div>
+
+          <!-- Set 2 (duplicate — aria-hidden so screen readers skip) -->
+          <div class="flex items-center gap-14 px-7" aria-hidden="true">
+            <img src="Images/Brand_Icons/migros.png"                        alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/ubs.png"                           alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/coop.png"                          alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/swisscom.png"                      alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/swiss_international_air_lines.png" alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/nestlé.png"                        alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/lindt.png"                         alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/sbb_cff_ffs.png"                   alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/postfinance.png"                   alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/rolex.png"                         alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/epfl.png"                          alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/raiffeisen.png"                    alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/omega.png"                         alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/helvetia_assurances.png"           alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/bcv_banque_cantonale_vaudoise.png" alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/manor.png"                         alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/sunrise.png"                       alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/la_mobilière.png"                  alt="" class="h-7 w-auto opacity-40">
+            <img src="Images/Brand_Icons/chuv.png"                          alt="" class="h-7 w-auto opacity-40">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       ABOUT SNIPPET
+       ================================================================ -->
+  <section class="bg-ivory py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Tall portrait (left on desktop) -->
+      <div class="relative flex justify-center lg:justify-start fade-in order-2 lg:order-1">
+        <!-- =========================================================
+             PHOTO: Full-length portrait (the rust dress image).
+             Works well as a tall vertical accent alongside body text.
+             ========================================================= -->
+        <img
+          src="Images/IMG_3677.jpg"
+          alt="Maud Fasel, voiceover artist"
+          class="relative z-10 w-44 sm:w-56 lg:w-64 object-cover shadow-lg"
+        >
+        <div class="absolute top-5 left-5 w-44 sm:w-56 lg:w-64 h-full border-2 border-gold/40 z-0 pointer-events-none"></div>
+      </div>
+
+      <!-- Bio text (right on desktop) -->
+      <div class="order-1 lg:order-2 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4">About Maud</p>
+        <h2 class="font-display text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
+          Voiceover in four<br>languages.
+        </h2>
+
+        <!-- =========================================================
+             BIO TEXT: Placeholder copy — replace with Maud's real bio.
+             Keep it warm, first-person, and specific.
+             ========================================================= -->
+        <p class="font-body text-charcoal/65 leading-relaxed mb-5">
+          I'm Maud Fasel — a multilingual voiceover artist based in Lausanne, working in English, French,
+          German and Italian. Over the years I've had the opportunity to work for Swiss brands across
+          retail, finance, luxury and the public sector.
+        </p>
+        <p class="font-body text-charcoal/65 leading-relaxed mb-8">
+          I work across radio and TV commercials, corporate films and brand narratives, bringing care and
+          consistency to every project. I record from my home studio in Lausanne and work regularly with
+          <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-gold-dk underline underline-offset-2 transition-colors">Arcane Productions</a>
+          in Vevey.
+        </p>
+
+        <a href="about.html" class="inline-flex items-center gap-2 font-body text-sm font-semibold text-gold hover:text-gold-dk transition-colors group">
+          Read more about me
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       TESTIMONIALS
+       ================================================================ -->
+  <section class="bg-warmgrey py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-3">What clients say</p>
+        <h2 class="font-display text-4xl lg:text-5xl text-charcoal">In their words.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- =========================================================
+             TESTIMONIALS: Placeholder quotes — replace with real ones.
+             Ask clients for: a quote, their name, job title, company.
+             ========================================================= -->
+
+        <div class="bg-ivory p-8 fade-in">
+          <p class="font-display text-5xl text-charcoal/20 leading-none mb-4">&ldquo;</p>
+          <p class="font-body text-charcoal/70 leading-relaxed mb-8 italic text-[15px]">
+            Maud grasped the brief quickly and delivered exactly what we were looking for.
+            The whole session was straightforward and the result was spot on.
+          </p>
+          <div>
+            <p class="font-body text-sm font-semibold text-charcoal">Sophie Leclerc</p>
+            <p class="font-body text-xs text-charcoal/45 mt-0.5">Creative Director, Havas Switzerland</p>
+          </div>
+        </div>
+
+        <div class="bg-ivory p-8 fade-in">
+          <p class="font-display text-5xl text-charcoal/20 leading-none mb-4">&ldquo;</p>
+          <p class="font-body text-charcoal/70 leading-relaxed mb-8 italic text-[15px]">
+            Very little direction needed. Maud arrived well-prepared, and the recording was done
+            efficiently. I would be happy to work with her again.
+          </p>
+          <div>
+            <p class="font-body text-sm font-semibold text-charcoal">Marc Burri</p>
+            <p class="font-body text-xs text-charcoal/45 mt-0.5">Senior Producer, Arcane Productions, Vevey</p>
+          </div>
+        </div>
+
+        <div class="bg-ivory p-8 fade-in">
+          <p class="font-display text-5xl text-charcoal/20 leading-none mb-4">&ldquo;</p>
+          <p class="font-body text-charcoal/70 leading-relaxed mb-8 italic text-[15px]">
+            We needed French and German recorded back-to-back in a tight window.
+            Maud delivered both flawlessly. Our clients were genuinely delighted.
+          </p>
+          <div>
+            <p class="font-body text-sm font-semibold text-charcoal">Thomas Kramer</p>
+            <p class="font-body text-xs text-charcoal/45 mt-0.5">Account Director, Publicis Zürich</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CONTACT CTA BAND
+       ================================================================ -->
+  <section class="bg-charcoal py-24">
+    <div class="max-w-2xl mx-auto px-6 lg:px-12 text-center fade-in">
+      <p class="font-body text-gold text-xs font-semibold tracking-[0.28em] uppercase mb-4">Get in touch</p>
+      <h2 class="font-display text-4xl lg:text-5xl text-ivory mb-6">
+        Have a project in mind?
+      </h2>
+      <p class="font-body text-ivory/50 leading-relaxed mb-10 max-w-md mx-auto">
+        Whether your brief is finalised or you're still in the early stages, I'm glad to hear from you.
+        I aim to respond within 24 hours.
+      </p>
+      <a href="contact.html" class="inline-block bg-gold hover:bg-gold-dk text-white font-body font-semibold text-sm tracking-wide px-10 py-4 transition-colors duration-200">
+        Send Me a Message
+      </a>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="bg-charcoal border-t border-ivory/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+
+        <!-- Brand -->
+        <div>
+          <p class="font-display text-2xl text-ivory mb-3">Maud Fasel</p>
+          <p class="font-body text-ivory/40 text-sm leading-relaxed">
+            Multilingual voiceover artist.<br>
+            Lausanne, Switzerland.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Pages</p>
+          <div class="flex flex-col gap-3">
+            <a href="demos.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Demos</a>
+            <a href="about.html"    class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">About</a>
+            <a href="services.html" class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Services</a>
+            <a href="clients.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Clients</a>
+            <a href="contact.html"  class="font-body text-sm text-ivory/55 hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+
+        <!-- Connect + Language -->
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-5">Connect</p>
+          <a href="https://www.linkedin.com/in/maudfasel/" target="_blank" rel="noopener noreferrer"
+             class="font-body text-sm text-ivory/55 hover:text-gold transition-colors block mb-8">
+            LinkedIn
+          </a>
+          <p class="font-body text-[10px] uppercase tracking-[0.22em] text-ivory/30 mb-3">Language</p>
+          <div class="flex gap-3">
+            <a href="index.html"    onclick="setLang('en')" class="font-body text-xs font-semibold text-gold tracking-widest">EN</a>
+            <a href="fr/index.html" onclick="setLang('fr')" class="font-body text-xs font-medium text-ivory/35 hover:text-gold tracking-widest transition-colors">FR</a>
+            <a href="de/index.html" onclick="setLang('de')" class="font-body text-xs font-medium text-ivory/35 hover:text-gold tracking-widest transition-colors">DE</a>
+            <a href="it/index.html" onclick="setLang('it')" class="font-body text-xs font-medium text-ivory/35 hover:text-gold tracking-widest transition-colors">IT</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-ivory/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body text-xs text-ivory/25">© 2025 Maud Fasel. All rights reserved.</p>
+        <p class="font-body text-xs text-ivory/25">
+          Home studio, Lausanne &nbsp;·&nbsp;
+          <a href="https://arcaneproductions.ch" target="_blank" rel="noopener noreferrer"
+             class="hover:text-ivory/50 transition-colors">Arcane Productions, Vevey</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
